@@ -39,6 +39,8 @@ class BookController extends Controller
         $book = Book::create([
             "name" => $request->input('name'),
             "author_name" => $request->input('author_name'),
+            "quantity" => $request->input('quantity'),
+            "synopsis" => $request->input('synopsis'),
         ]);
         $book->save();
         return redirect(route('books'));
@@ -87,5 +89,16 @@ class BookController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function order($id)
+    {
+        $book = Book::find($id);
+        if($book->quantity > 0) {
+            $book->update(['quantity' => $book->quantity - 1]);
+            $book->users()->sync(Auth::id());
+        }
+
+        return redirect(route('books'));
     }
 }
