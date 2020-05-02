@@ -3,6 +3,111 @@
 
 // Variables
 @import 'variables';
+@import 'navbar';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// @import '../../node_modules/bootstrap/scss/bootstrap';
+
+// // Required
+// @import "../../node_modules/bootstrap/scss/functions";
+// @import "../../node_modules/bootstrap/scss/variables";
+// @import "../../node_modules/bootstrap/scss/mixins";
+
+// // Navbar stuff
+// @import "../../node_modules/bootstrap/scss/navbar";
+// @import "../../node_modules/bootstrap/scss/utilities";
+// @import "../../node_modules/bootstrap/scss/nav";
+// @import "../../node_modules/bootstrap/scss/transitions";
+// @import "../../node_modules/bootstrap/scss/reboot";
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $bg-color;
+  color: $color;
+  font-family: $ff;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.list {
+  margin: 1em 0;
+  list-style-type: none;
+
+  &-item {
+    background-color: $primary;
+    margin-bottom: 1em;
+    padding: 1em;
+  }
+
+  &-item__title {
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+  }
+
+  &-item__link {
+    text-decoration: none;
+    color: $white;;
+  }
+
+  &-item__body {
+    margin-bottom: 0.5em;
+    color: $gray;
+  }
+
+  &-item__footer {
+    color: $gray;
+    font-size: 0.8rem;
+
+    &::before {
+      content: '- ';
+    }
+  }
+}
+
+.book {
+
+  &__title {
+    font-size: 3rem;
+  }
+
+  &__author-name {
+  font-size: 0.7rem;
+  color: $gray;
+  font-style: italic;
+
+    &::before {
+      content: '- ';
+    }
+  }
+
+  &__body {
+    margin: 1em 0;
+  }
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1em 2em;
+  margin: 1em 0;
+  border: none;
+  font-family: $ff;
+}
+
+.button--secondary {
+  background-color: $secondary;
+  color: $black;
+}
+
+.u-display-none {
+  display: none;
+}

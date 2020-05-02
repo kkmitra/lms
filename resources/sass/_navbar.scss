@@ -1,0 +1,144 @@
+.main__navigation {
+  background-color: $primary;
+  margin-bottom: 1em;
+
+  position: relative;
+
+  &__logo {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 3rem;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: $white;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+}
+
+.menu {
+  list-style-type: none;
+  position: absolute;
+  background-color: $primary;
+  top: 100%;
+  right: 0;
+  left: 0;
+
+
+  transform: scale(1, 0);
+  transition: transform 400ms ease-in-out;
+  transform-origin: top;
+}
+
+.menu__item {
+  margin-bottom: 1em;
+  margin-left: 3em;
+}
+
+.menu__link {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-toggle-checkbox {
+  display: none;
+}
+
+.navbar-toggle-checkbox:checked ~ .menu {
+  transform: scale(1, 1);
+}
+
+.navbar-toggle-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  span,
+  span::before,
+  span::after {
+    width: 30px;
+    height: 2px;
+    border-radius: 3px;
+    background-color: $white;
+    position: relative;
+  }
+
+  span::before,
+  span::after {
+    content: '';
+    position: absolute;
+  }
+
+  span::before {
+    top: -.5em;
+  }
+
+  span::after {
+    bottom: -.5em;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+
+  .menu {
+    transform: scale(1, 1);
+    all: unset;
+
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu__item {
+    all: unset;
+    margin: 0 1em;
+  }
+
+  .navbar-toggle-label {
+    display: none;
+  }
+
+  .menu__link {
+    position: relative;
+  }
+
+  .menu__link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.2em;
+    height: 3px;
+    background-color: black;
+    transform: scale(0, 1);
+    transition: transform 250ms ease-in-out;
+  }
+
+  .menu__link:hover {
+    color: black;
+
+    &::before {
+      transform: scale(1, 1);
+    }
+  }
+
+  .menu__link--danger {
+
+    &:hover {
+      color: $danger;
+    }
+
+    &::before {
+      background-color: $danger;
+    }
+  }
+
+}
