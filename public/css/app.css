@@ -123,6 +123,27 @@
     background-color: #ff1313;
   }
 }
+.form {
+  margin-top: 2em;
+  box-shadow: 10px 0 100px 0 rgba(0, 0, 0, 0.5);
+  padding: 4em 2em;
+}
+
+.form__label {
+  font-size: 1.5rem;
+}
+
+.form__group {
+  margin: 1em 0;
+}
+
+.form__input {
+  width: 100%;
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  font-size: 1.5rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -138,6 +159,10 @@ body {
 .container {
   max-width: 80%;
   margin: 0 auto;
+}
+
+.page__header {
+  font-size: 4rem;
 }
 
 .list {
@@ -191,10 +216,16 @@ body {
   margin: 1em 0;
   border: none;
   font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
 }
 
 .button--secondary {
   background-color: #29E5FF;
+  color: #000;
+}
+
+.button--primary {
+  background-color: #487BFF;
   color: #000;
 }
 

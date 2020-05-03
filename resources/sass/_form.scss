@@ -1,0 +1,18 @@
+.form {
+    margin-top: 2em;
+    box-shadow: 10px 0 100px 0 rgba(0, 0, 0, 0.5);
+    padding: 4em 2em;
+}
+
+.form__label {
+    font-size: 1.5rem;
+}
+.form__group {
+    margin: 1em 0;
+}
+.form__input {
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.5rem;
+}

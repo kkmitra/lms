@@ -3,25 +3,25 @@
 @section('content')
 <div class="container">
   <h1>Create a book</h1>
-  <form action="{{ route('store_book') }}" method="post">
+  <form action="{{ route('store_book') }}" method="post" class="form">
     @csrf
-    <div class="form-group">
-      <label for="name">Book name</label>
-      <input type="text" id="name" class="form-control" name="name">
+    <div class="form__group">
+      <label class="form__label" for="name">Book name</label>
+      <input type="text" id="name" class="form__input" name="name">
     </div>
-    <div class="form-group">
-      <label for="author_name">Author name</label>
-      <input type="text" id="author_name" class="form-control" name="author_name">
+    <div class="form__group">
+      <label class="form__label" for="author_name">Author name</label>
+      <input type="text" id="author_name" class="form__input" name="author_name">
     </div>
-    <div class="form-group">
-      <label for="quantity">Quantity</label>
-      <input type="text" id="quantity" class="form-control" name="quantity">
+    <div class="form__group">
+      <label class="form__label" for="quantity">Quantity</label>
+      <input type="text" id="quantity" class="form__input" name="quantity">
     </div>
-    <div class="form-group">
-      <label for="synopsis">Synopsis</label>
-      <textarea id="synopsis" class="form-control" name="synopsis" rows="5"></textarea>
+    <div class="form__group">
+      <label class="form__label" for="synopsis">Synopsis</label>
+      <textarea id="synopsis" class="form__input" name="synopsis" rows="5"></textarea>
     </div>
-    <input type="submit" value="Create" class="btn btn-primary">
+    <input type="submit" value="Create" class="button button--primary">
   </form>
 </div>
 @endsection

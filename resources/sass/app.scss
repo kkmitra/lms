@@ -4,7 +4,7 @@
 // Variables
 @import 'variables';
 @import 'navbar';
-
+@import 'form';
 // Bootstrap
 // @import '../../node_modules/bootstrap/scss/bootstrap';
 
@@ -38,6 +38,9 @@ body {
   margin: 0 auto;
 }
 
+.page__header {
+    font-size: 4rem;
+}
 .list {
   margin: 1em 0;
   list-style-type: none;
@@ -101,6 +104,7 @@ body {
   margin: 1em 0;
   border: none;
   font-family: $ff;
+  font-size: 1.5rem;
 }
 
 .button--secondary {
@@ -108,6 +112,10 @@ body {
   color: $black;
 }
 
+.button--primary {
+    background-color: $primary;
+    color: $black;
+}
 .u-display-none {
   display: none;
 }
