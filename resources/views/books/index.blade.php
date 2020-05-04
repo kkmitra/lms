@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="container">
-  <a href="{{ route('create_book') }}" class="button button--secondary">Add a new book</a>
-
-  <h1>List of books</h1>
+  <div class="page__header">List of books</div>
   <ul class="list">
     @foreach($books as $book)
       <li class="list-item">

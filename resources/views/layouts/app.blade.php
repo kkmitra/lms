@@ -50,11 +50,13 @@
 								<a href="{{ route('books') }}" class="menu__link">Show Books</a>
 							</li>
 							<li class="menu__item">
+								<a href="{{ route('create_book') }}" class="menu__link">Add Books</a>
+							</li>
+							<li class="menu__item">
 								<a class="menu__link menu__link--danger" href="{{ route('logout') }}"
 									onclick="event.preventDefault();document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
 								</a>
-
 								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 									@csrf
 								</form>

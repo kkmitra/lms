@@ -99,6 +99,6 @@ class BookController extends Controller
             $book->users()->sync(Auth::id());
         }
 
-        return redirect(route('books'));
+        return redirect(route('home'));
     }
 }

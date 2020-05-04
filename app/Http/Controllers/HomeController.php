@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user_books = auth()->user()->books;
+        $popular_books = Book::all()->take(5);
+        return view('home', ["user_books" => $user_books, "popular_books" => $popular_books]);
     }
 }
