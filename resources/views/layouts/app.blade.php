@@ -39,19 +39,19 @@
 					<ul class="menu">
 						@guest
 							<li class="menu__item">
-								<a href="{{ route('login') }}" class="menu__link">{{ __('Login') }}</a>
+								<a href="{{ route('login') }}" class="menu__link {{ Route::currentRouteName() === 'login' ? 'active' : '' }}">{{ __('Login') }}</a>
 							</li>
 							@if (Route::has('register'))
 								<li class="menu__item">
-									<a class="menu__link" href="{{ route('register') }}">{{ __('Register') }}</a>
+									<a class="menu__link {{ Route::currentRouteName() === 'register' ? 'active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
 								</li>
 							@endif
 						@else
 							<li class="menu__item">
-								<a href="{{ route('books') }}" class="menu__link {{ $book_list_page ?? ''}}">Show Books</a>
+								<a href="{{ route('books') }}" class="menu__link {{ Route::currentRouteName() === 'books' ? 'active' : ''}}">Show Books</a>
 							</li>
 							<li class="menu__item">
-								<a href="{{ route('create_book') }}" class="menu__link {{ $book_create_page ?? ''}}">Add Books</a>
+								<a href="{{ route('create_book') }}" class="menu__link {{ Route::currentRouteName() === 'create_book' ? 'active' : '' }}">Add Books</a>
 							</li>
 							<li class="menu__item">
 								<a class="menu__link menu__link--danger" href="{{ route('logout') }}"
