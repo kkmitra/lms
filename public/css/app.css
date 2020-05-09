@@ -73,6 +73,10 @@
   bottom: -0.5em;
 }
 
+.active {
+  color: #29E5FF;
+}
+
 @media only screen and (min-width: 600px) {
   .menu {
     transform: scale(1, 1);
@@ -120,6 +124,13 @@
   .menu__link--danger::before {
     background-color: #e43f5a;
   }
+
+  .active::before {
+    color: #29E5FF;
+    left: 0;
+    right: 0;
+    transform: scale(0.1, 1);
+  }
 }
 .form {
   box-shadow: 10px 0 100px 0 rgba(0, 0, 0, 0.5);
@@ -153,8 +164,7 @@
 
 @media only screen and (min-width: 600px) {
   .form {
-    margin: auto;
-    width: 80%;
+    padding: 4em 6em;
   }
 }
 * {

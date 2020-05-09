@@ -89,6 +89,10 @@
 //   width: ;
 // }
 
+.active {
+  color: $secondary;
+}
+
 @media only screen and (min-width: 600px) {
 
   .menu {
@@ -142,6 +146,13 @@
     &::before {
       background-color: $danger;
     }
+  }
+
+  .active::before {
+    color: $secondary;
+    left: 0;
+    right: 0;
+    transform: scale(0.1, 1);
   }
 
 }

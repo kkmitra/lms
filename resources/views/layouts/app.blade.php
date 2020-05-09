@@ -48,10 +48,10 @@
 							@endif
 						@else
 							<li class="menu__item">
-								<a href="{{ route('books') }}" class="menu__link">Show Books</a>
+								<a href="{{ route('books') }}" class="menu__link {{ $book_list_page ?? ''}}">Show Books</a>
 							</li>
 							<li class="menu__item">
-								<a href="{{ route('create_book') }}" class="menu__link">Add Books</a>
+								<a href="{{ route('create_book') }}" class="menu__link {{ $book_create_page ?? ''}}">Add Books</a>
 							</li>
 							<li class="menu__item">
 								<a class="menu__link menu__link--danger" href="{{ route('logout') }}"

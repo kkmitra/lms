@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ["book_list_page" => "active"])
 
 @section('content')
 <div class="container">
