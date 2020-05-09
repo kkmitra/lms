@@ -1,18 +1,39 @@
 .form {
-    margin-top: 2em;
     box-shadow: 10px 0 100px 0 rgba(0, 0, 0, 0.5);
     padding: 4em 2em;
 }
 
-.form__label {
-    font-size: 1.5rem;
-}
-.form__group {
+.form__group + .form__group {
     margin: 1em 0;
 }
 .form__input {
     width: 100%;
-    margin-top: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.5rem;
+    padding: 1em;
+    // font-size: 1.5rem;
+    color: $white;
+
+    // border: 1px solid white;
+    margin-top: 0.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: $black;
+    box-shadow: inset 0 0 100px 0 rgba($color: #000000, $alpha: 0.5);
+
+    font-family: $ff;
 }
+
+.error-message {
+    color: $danger;
+    font-size: 0.7rem;
+
+}
+
+@media only screen and (min-width: 600px) {
+
+    .form {
+        margin: auto;
+        width: 80%;
+    }
+
+}
+

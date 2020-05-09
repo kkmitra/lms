@@ -26,7 +26,8 @@
 
 					<div class="main__navigation__logo">
 						<a href="/">
-							lms
+							<!-- lms -->
+							<img src="{{ asset('images/logo.png') }}" alt="" class="image">
 						</a>
 					</div>
 

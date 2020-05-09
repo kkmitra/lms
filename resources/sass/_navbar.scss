@@ -5,16 +5,13 @@
   position: relative;
 
   &__logo {
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size: 3rem;
-    text-align: center;
-
     a {
-      // font-family: 'Dancing Script', cursive;
-      font-family: 'Shadows Into Light', cursive;
-      text-decoration: none;
-      color: $white;
+
+      display: block;
+      width: 100px;
+
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -88,6 +85,10 @@
   }
 }
 
+// .brand-image {
+//   width: ;
+// }
+
 @media only screen and (min-width: 600px) {
 
   .menu {
@@ -119,13 +120,13 @@
     right: 0;
     bottom: -0.2em;
     height: 3px;
-    background-color: black;
+    background-color: $secondary;
     transform: scale(0, 1);
     transition: transform 250ms ease-in-out;
   }
 
   .menu__link:hover {
-    color: black;
+    color: $secondary;
 
     &::before {
       transform: scale(1, 1);

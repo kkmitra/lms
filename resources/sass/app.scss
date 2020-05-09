@@ -7,21 +7,6 @@
 @import 'variables';
 @import 'navbar';
 @import 'form';
-// Bootstrap
-// @import '../../node_modules/bootstrap/scss/bootstrap';
-
-// // Required
-// @import "../../node_modules/bootstrap/scss/functions";
-// @import "../../node_modules/bootstrap/scss/variables";
-// @import "../../node_modules/bootstrap/scss/mixins";
-
-// // Navbar stuff
-// @import "../../node_modules/bootstrap/scss/navbar";
-// @import "../../node_modules/bootstrap/scss/utilities";
-// @import "../../node_modules/bootstrap/scss/nav";
-// @import "../../node_modules/bootstrap/scss/transitions";
-// @import "../../node_modules/bootstrap/scss/reboot";
-
 
 * {
   box-sizing: border-box;
@@ -41,21 +26,28 @@ body {
 }
 
 .page__header {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 .list {
   margin: 1em 0;
   list-style-type: none;
 
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
+    gap: 1em;
+  }
+
   &-item {
     background-color: $primary;
-    margin-bottom: 1em;
-    padding: 1em;
+    padding: 1em 2em;
   }
 
   &-item__title {
     font-size: 2rem;
-    margin-bottom: 0.5em;
+
+    display: flex;
+    align-items: center;
   }
 
   &-item__link {
@@ -65,17 +57,43 @@ body {
 
   &-item__body {
     margin-bottom: 0.5em;
-    color: $gray;
+    color: $white;
   }
 
   &-item__footer {
-    color: $gray;
+    color: darken($color: $white, $amount: 1);
     font-size: 0.8rem;
 
     &::before {
       content: '- ';
     }
   }
+
+  &-item__group {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+
+    margin-bottom: 0.5em;
+  }
+
+  &-item__button {
+    color: $secondary;
+    font-weight: bold;
+
+    &:hover {
+      color: $white
+    }
+  }
+
+  &-item__image-container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.image {
+  width: 100%;
+
 }
 
 .book {
@@ -102,8 +120,8 @@ body {
 .button {
   display: inline-block;
   text-decoration: none;
-  padding: 1em 2em;
-  margin: 1em 0;
+  padding: 0.5em 2em;
+  // margin: 1em 0;
   border: none;
   font-family: $ff;
   font-size: 1.5rem;
@@ -116,7 +134,7 @@ body {
 
 .button--primary {
     background-color: $primary;
-    color: $black;
+    color: $white;
 }
 .u-display-none {
   display: none;
