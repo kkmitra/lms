@@ -7,7 +7,7 @@
     @forelse($books as $book)
     <li class="list-item">
       <div class="list-item__image">
-        <img src="https://source.unsplash.com/random/300x100" alt="list-image"
+        <img src="{{ $book->picture }}" alt="list-image"
           class="image">
       </div>
       <div class="list-item__group">

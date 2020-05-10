@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -43,18 +44,24 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'author_name' => 'required',
             'quantity' => 'required|integer',
             'synopsis' => 'required',
+            'book_image' => 'required|image',
         ]);
+
+        $path = $request->file('book_image')->store('public/images/books');
+        $picture_url = Storage::url($path);
 
         $book = Book::create([
             "name" => $request->input('name'),
             "author_name" => $request->input('author_name'),
             "quantity" => $request->input('quantity'),
             "synopsis" => $request->input('synopsis'),
+            "picture" => $picture_url,
         ]);
         $book->save();
         return redirect(route('books'));

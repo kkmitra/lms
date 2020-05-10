@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <h1>Create a book</h1>
-  <form action="{{ route('store_book') }}" method="post" class="form">
+  <form action="{{ route('store_book') }}" method="post" class="form" enctype="multipart/form-data">
     @csrf
     <div class="form__group">
       <label class="form__label" for="name">Book name</label>
@@ -30,6 +30,13 @@
       <label class="form__label" for="synopsis">Synopsis</label>
       <textarea id="synopsis" class="form__input @error('synopsis') is-invalid @enderror" name="synopsis" rows="5" placeholder="Synopsis">{{ old('synopsis') }}</textarea>
       @error('synopsis')
+        <div class="error-message">{{ $message }}</div>
+      @enderror
+    </div>
+    <div class="form__group">
+      <label for="book_image">Upload Image</label>
+      <input type="file" name="book_image" id="book_image" class="form__input">
+      @error('book_image')
         <div class="error-message">{{ $message }}</div>
       @enderror
     </div>

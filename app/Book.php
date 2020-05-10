@@ -12,6 +12,7 @@ class Book extends Model
         'author_name',
         'quantity',
         'synopsis',
+        'picture'
     ];
 
     public function users()
