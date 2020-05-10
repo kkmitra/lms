@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Role\UserRole;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,6 +27,36 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        /**@var \App\User */
+        $user = Auth::user();
+
+        if($user->hasRole(UserRole::ROLE_CUSTOMER)) {
+            return abort('403');
+        }
+
+        $roles = [];
+
+        if($user->hasRole(UserRole::ROLE_ADMIN)) {
+            $roles = [
+                UserRole::ROLE_MANAGEMENT => UserRole::getRoleName(UserRole::ROLE_MANAGEMENT),
+                UserRole::ROLE_CUSTOMER => UserRole::getRoleName(UserRole::ROLE_CUSTOMER)
+            ];
+        } elseif ($user->hasRole(UserRole::ROLE_MANAGEMENT)) {
+            $roles = [
+                UserRole::ROLE_CUSTOMER => UserRole::getRoleName(UserRole::ROLE_CUSTOMER)
+            ];
+        }
+
+        return view('auth.register', ["roles" => $roles]);
+    }
+
+    /**
      * Where to redirect users after registration.
      *
      * @var string
@@ -38,7 +70,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -52,7 +84,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'confirmed'],
+            'roles' =>  ['required'],
         ]);
     }
 
@@ -64,10 +97,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = (new User([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ]));
+        $user->addRole($data['roles']);
+        $user->save();
+
+        return $user;
     }
 }

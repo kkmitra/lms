@@ -41,18 +41,23 @@
 							<li class="menu__item">
 								<a href="{{ route('login') }}" class="menu__link {{ Route::currentRouteName() === 'login' ? 'active' : '' }}">{{ __('Login') }}</a>
 							</li>
-							@if (Route::has('register'))
-								<li class="menu__item">
-									<a class="menu__link {{ Route::currentRouteName() === 'register' ? 'active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
-								</li>
-							@endif
 						@else
 							<li class="menu__item">
 								<a href="{{ route('books') }}" class="menu__link {{ Route::currentRouteName() === 'books' ? 'active' : ''}}">Show Books</a>
 							</li>
-							<li class="menu__item">
-								<a href="{{ route('create_book') }}" class="menu__link {{ Route::currentRouteName() === 'create_book' ? 'active' : '' }}">Add Books</a>
-							</li>
+							@if(!Auth::user()->hasRole(\App\Role\UserRole::ROLE_CUSTOMER))
+								<li class="menu__item">
+									<a href="{{ route('create_book') }}"
+										class="menu__link {{ Route::currentRouteName() === 'create_book' ? 'active' : '' }}">Add
+										Books</a>
+								</li>
+								@if (Route::has('register'))
+								<li class="menu__item">
+									<a class="menu__link {{ Route::currentRouteName() === 'register' ? 'active' : '' }}"
+										href="{{ route('register') }}">{{ __('Add User') }}</a>
+								</li>
+								@endif
+							@endif
 							<li class="menu__item">
 								<a class="menu__link menu__link--danger" href="{{ route('logout') }}"
 									onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -66,10 +71,8 @@
 					</ul>
 				</div>
 			</header>
-
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
 </body>
 </html>

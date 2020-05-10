@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
+
+    public function __construct()
+    {
+        // $this->authorizeResource(Book::class, 'book');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,6 +30,8 @@ class BookController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Book::class);
+
         return view('books.create');
     }
 

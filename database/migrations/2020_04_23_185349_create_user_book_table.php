@@ -14,8 +14,8 @@ class CreateUserBookTable extends Migration
     public function up()
     {
         Schema::create('user_book', function (Blueprint $table) {
-            $table->integer('book_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->biginteger('book_id')->unsigned();
+            $table->biginteger('user_id')->unsigned();
 
             $table->unique(['book_id', 'user_id']);
             $table->foreign('book_id')->references('id')->on('books');

@@ -61,6 +61,20 @@
                             </div>
                         </div>
 
+                        @if (!empty($roles))
+                            <div class="form__group">
+                                <label for="roles">Choose a role:</label>
+
+                                <select id="roles" class="form__input" name="roles">
+                                    @foreach ($roles as $role_id => $role_name)
+                                        <option value="{{ $role_id }}">{{ $role_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        @endif
+
+
+
                         <div class="form__group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="button button--primary">
